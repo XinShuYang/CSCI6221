@@ -1,0 +1,41 @@
+package sort;
+
+public class recursionsort {
+	public static void main(String[] args) {
+		int[] arr = new int[2];
+		arr[0] = 2;
+		arr[1] = 1;
+		recursionsort(arr,0,1);
+	}
+	public static void recursionsort(int[] arr,int start,int end) {
+	if (start < end) {
+		int index = Partition(arr, start, end);
+		recursionsort(arr, start, index - 1);
+		recursionsort(arr, index + 1, end);
+		}
+	}
+	private static int Partition(int[] arr, int start, int end) {
+		
+		int point = arr[start];
+		while (start < end) {
+			while (arr[end] >= point && end > start)
+				end--;
+			arr[start] = arr[end];
+			while (arr[start] <= point && end > start)
+				start++;
+			arr[end] = arr[start];
+		}
+		arr[start] = point;
+		return start;
+	}
+public void swap(int a,int b){
+	int temp=a;
+  	a=b;
+  	b=temp;
+	}
+ 
+
+
+
+
+}

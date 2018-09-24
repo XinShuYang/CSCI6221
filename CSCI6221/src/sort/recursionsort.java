@@ -1,8 +1,9 @@
 package sort;
+import quickSort.quickSort;
 
-public class recursionsort {
+public class recursionsort implements quickSort {
 	//you need to delete this main test part when you finish the whole project
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		int[] arr = new int[4];
 		arr[0] = 8;
 		arr[1] = 1;
@@ -10,8 +11,11 @@ public class recursionsort {
 		arr[3] = 2;
 		quicksort(arr,0,3);
 		System.out.println(arr[0]+""+arr[1]+""+arr[2]+""+arr[3]);
+	}*/
+	public void sort(Integer[] arr) {
+		this.quicksort(arr, 0, arr.length - 1);
 	}
-	public static void quicksort(int[] arr,int start,int end) {
+	public void quicksort(Integer[] arr,int start,int end) {
 	if (start < end) {
 		int index = Partition(arr, start, end);
 		//recursion:separate one array sorting task to 
@@ -20,7 +24,7 @@ public class recursionsort {
 		quicksort(arr, index + 1, end);
 		}
 	}
-	private static int Partition(int[] arr, int start, int end) {
+	private static int Partition(Integer[] arr, int start, int end) {
 		//Start point
 		int point = arr[start];
 		while (start < end) {

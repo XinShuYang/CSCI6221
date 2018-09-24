@@ -1,7 +1,8 @@
 package sort;
+import quickSort.quickSort;
 import java.util.Random;
 import java.util.Stack;
-public class NonRecursion {
+public class NonRecursion implements quickSort{
 	public void sort(Integer[] input) {
 		Stack<Integer> stack = new Stack();
 		int i,j;
@@ -18,7 +19,7 @@ public class NonRecursion {
 				}
 				if(k < j) {
 					stack.push(j);
-					stack.push(k  1);
+					stack.push(k + 1);
 				}
 			}
 		}
@@ -28,7 +29,7 @@ public class NonRecursion {
 		int priot = input[left];
 		int i = left, j = right;
 		while(true) {
-			while(input[i] < priot) {
+			while(input[++i] < priot) {
 				if(i == right)
 					break;
 			}
@@ -54,14 +55,13 @@ public class NonRecursion {
 		input[aIndex] = input[bIndex];
 		input[bIndex] = t;
 	}
-	
+
 	public static void main(String[] args) {
-		NonRecursion obj = new NonRecursion();
-		Integer[] array = new Integer[] {1,5,3,6,7,4,8,5,4,5,8,1,4,5,7,8};
-		obj.swap(array, 0, 11);
-		obj.sort(array);
-		for(int i: array) {
-			System.out.println(i);
+		Integer[] arrs = new Integer[] {1,5,3,7,3,88,6,9,33,4,5,12,33,42};
+		quickSort s = new NonRecursion();
+		s.sort(arrs);
+		for(int i = 0;i < arrs.length;i++) {
+			System.out.println(arrs[i]);
 		}
 	}
 

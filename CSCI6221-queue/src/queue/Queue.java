@@ -11,6 +11,8 @@ public class Queue {
 	private Node last = null;
 	
 	public void enqueue(int P,String N) {
+		//if the queue is not null, add new node behind exist last node
+		//else the node should be both the first and the last node
 		Node oldest = last;
 		last = new Node();
 		last.priority = P;
@@ -23,8 +25,10 @@ public class Queue {
 	}
 	
 	public String dequeue(){
+		//if the queue is empty, it can't return value
 		if(first== null)
 			throw new IllegalStateException("Empty Queue Can't Dequeue!");
+		//else we need to compare each priority node to figure out which node has the max priority 
 		Node max = first;
 		Node backup = first;
 		while(first.next != null)
